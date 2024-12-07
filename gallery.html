@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Sohorab Mahmud Fahim</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Fahim1-modified.png">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+</head>
+
+<body>
+
+
+    <style>
+        @media (max-width: 799px) {
+            #faq {
+                margin-top: 250px;
+            }
+        }
+    </style>
+    <!-- <div id="preloader">
+        <div class="spinner"></div>
+    </div> -->
+    <div class="cursor"></div>
+    <section id="Home-Nav">
+        <div id="header">
+            <div id="logo">
+                <h3>Portfolio</h3>
+            </div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">Faq</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <a href="#" id="close"><i class="far fa-times" style="color: white;"></i></a> </ul>
+            <div id="button" onclick="audio.play()">
+                <a href="img/cv.png">Download My CV</a></div>
+            <div id="mobile">
+                <i id="bar" class="fas fa-outdent" style="color: white;"></i>
+            </div>
+        </div>
+
+
+    </section>
+    <div id="imageModal" class="modal">
+        <span id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+
+    <div class="Activities">
+        <h1 data-aos="zoom-in">GALLERY</h1>
+        <section class="activities-container">
+            <div class="column">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+                <img src="img/Asset 4.png" alt="" data-aos="zoom-in">
+            </div>
+
+        </section>
+    </div>
+
+    <!-- frequently ask question section -->
+    <section id="faq">
+        <div id="faq-border">
+            <p>Have any questions or facing issues? We are here to help. Visit our FAQ section for solutions to common problems and detailed information on our services.</p><br>
+            <div id="faq-txt">
+                <a>Need assistance? Explore our <a href="" style="color:rgb(236, 134, 206);">FAQ</a> <a>for answers.</a></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="s-1">
+        <div class="c">
+            <a href="https://www.facebook.com/fahimlwebdeveloper" style="text-decoration: none;color: rgba(255, 255, 255, 0.733);font-weight:500;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 20px;">Sohorab Mahmud Fahim</a><br>
+            <h4>Contact</h4>
+            <p><strong>Adress: </strong>Khilgaon Chowdhury Para , Dhaka</p>
+            <p><strong>Phone: </strong>(+880)1624-063328</p>
+            <p><strong>Hours: </strong>10:00 - 18:00, Sat - Thus</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f" style="font-weight: 400;"></i>
+                    <i class="fab fa-instagram" style="font-weight: 400;"></i>
+                    <i class="fab fa-twitter" style="font-weight: 400;"></i>
+                    <i class="fab fa-pinterest" style="font-weight: 400;"></i>
+                    <i class="fab fa-youtube" style="font-weight: 400;"></i>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="c">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
+
+        <div class="c">
+            <h4>Additional Information</h4>
+            <a href="about.html">Our Mission</a>
+            <a href="about.html">How We Operate</a>
+            <a href="about.html">Privacy Policy</a>
+            <a href="faq.html">FAQs</a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2024, Created by <a href="https://www.facebook.com/fahimlwebdeveloper" style="font-weight:600;">Sohorab Mahmud Fahim</a>.</p>
+        </div>
+
+    </footer>
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            const content = document.getElementById('content');
+            preloader.style.display = 'none';
+            content.style.display = 'block';
+        });
+    </script>
+    <script>
+        const bar = document.getElementById('bar');
+        const close = document.getElementById('close');
+        const nav = document.getElementById('navbar');
+
+        if (bar) {
+            bar.addEventListener('click', () => {
+                nav.classList.add('active');
+                nav.style.zIndex = '1000';
+            });
+        }
+
+        if (close) {
+            close.addEventListener('click', () => {
+                nav.classList.remove('active');
+                nav.style.zIndex = 'initial';
+            });
+        }
+    </script>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        AOS.init({
+            offset: 300
+        })
+        AOS.init({
+            delay: 20
+        })
+    </script>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")
+        })
+
+        document.addEventListener('click', () => {
+            cursor.classList.add("expand");
+
+            setTimeout(() => {
+                cursor.classList.remove("expand");
+            }, 500)
+        })
+    </script>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.audio = new Audio();
+            audio.src = './img/click.mp3';
+        });
+
+        function playAudio() {
+            if (window.audio) {
+                audio.play();
+            } else {
+                console.error('Audio element not found');
+            }
+        }
+    </script>
+
+    <script>
+        var modal = document.getElementById("imageModal");
+
+        var modalImg = document.getElementById("modalImage");
+        var images = document.querySelectorAll(".activities-container .column img");
+        var closeModal = document.getElementById("closeModal");
+
+        images.forEach(function(image) {
+            image.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1900,
+            once: true
+        });
+    </script>
+</body>
+
+</html>

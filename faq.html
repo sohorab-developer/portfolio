@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Ask Question | Sohorab Mahmud Fahim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Fahim1-modified.png">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+</head>
+
+<body>
+
+    <style>
+        .chatbot-icon {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        
+        .chatbot-icon-inner {
+            padding: 10px;
+            display: flex;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chatbot-icon img {
+            width: 70px;
+            height: 70px;
+            border: 5px double rgb(255, 143, 255);
+            border-radius: 50%;
+        }
+        
+        #chatbot-input {
+            background-color: #f8d7ff;
+        }
+        
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        
+        .chatbot-header {
+            background: #fdcfff;
+            color: #000000;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -2 10px rgba(0, 0, 0, 0.445);
+        }
+        
+        .chatbot-body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 10px;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .user-message,
+        .bot-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background-color: #efbaff;
+            color: #ffffff;
+            align-self: flex-end;
+        }
+        
+        .bot-message {
+            background-color: #f1f1f1;
+            color: #ffffff;
+        }
+        
+        .chatbot-input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: calc(100% - 20px);
+        }
+        
+        .chatbot-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .suggestion {
+            background-color: #ffcafc;
+            border: none;
+            color: #000000;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .suggestion:hover {
+            background-color: #ffa2ff;
+        }
+    </style>
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="cursor"></div>
+    <section id="Home-Nav">
+        <div id="header">
+            <div id="logo">
+                <h3>Portfolio</h3>
+            </div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">Faq</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <a href="#" id="close"><i class="far fa-times" style="color: white;"></i></a> </ul>
+            <div id="button" onclick="audio.play()">
+                <a href="img/cv.png">Download My CV</a></div>
+            <div id="mobile">
+                <i id="bar" class="fas fa-outdent" style="color: white;"></i>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- FAQ Section -->
+    <div id="center" style="display: flex;
+    align-items: center;
+    justify-content: center;">
+        <section class="faq-section" style="height: 70vh; width: 80%;padding: 50px 0;">
+            <h1>Frequently Asked Questions</h1>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h2>What is your privacy policy?</h2>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our privacy policy can be viewed on our Privacy Policy page.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h2>How do I register?</h2>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can register through the registration page on our website.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!-- Chatbot Icon -->
+    <div class="chatbot-icon">
+        <div class="chatbot-icon-inner">
+            <img src="img/logo.png" alt="Chatbot Icon">
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <div class="chatbot-header">
+            <h3>Virtual Assistant</h3>
+            <span class="chatbot-close">&times;</span>
+        </div>
+        <div class="chatbot-body">
+            <div class="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Type your message...">
+            <div class="chatbot-suggestions">
+                <button class="suggestion" data-suggestion="privacy policy">Privacy Policy</button>
+                <button class="suggestion" data-suggestion="registration">Registration</button>
+                <button class="suggestion" data-suggestion="payment">Payment</button>
+                <button class="suggestion" data-suggestion="events">Events</button>
+            </div>
+        </div>
+    </div>
+
+
+<!-- 
+    <section id="sponsor">
+        <div id="cent-wrapper">
+            <div class="wrapper">
+                <div class="item item1">
+                    <h3>Sponsor 1</h3>
+                </div>
+                <div class="item item2">
+                    <h3>Sponsor 2</h3>
+                </div>
+                <div class="item item3">
+                    <h3>Sponsor 3</h3>
+                </div>
+                <div class="item item4">
+                    <h3>Sponsor 4</h3>
+                </div>
+                <div class="item item5">
+                    <h3>Sponsor 5</h3>
+                </div>
+                <div class="item item6">
+                    <h3>Sponsor 6</h3>
+                </div>
+                <div class="item item7">
+                    <h3>Sponsor 7</h3>
+                </div>
+                <div class="item item8">
+                    <h3>Sponsor 8</h3>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <footer class="s-1">
+        <div class="c">
+            <a href="https://www.facebook.com/fahimlwebdeveloper" style="text-decoration: none;color: rgba(255, 255, 255, 0.733);font-weight:500;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 20px;">Sohorab Mahmud Fahim</a><br>
+            <h4>Contact</h4>
+            <p><strong>Adress: </strong>Khilgaon Chowdhury Para , Dhaka</p>
+            <p><strong>Phone: </strong>(+880)1624-063328</p>
+            <p><strong>Hours: </strong>10:00 - 18:00, Sat - Thus</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f" style="font-weight: 400;"></i>
+                    <i class="fab fa-instagram" style="font-weight: 400;"></i>
+                    <i class="fab fa-twitter" style="font-weight: 400;"></i>
+                    <i class="fab fa-pinterest" style="font-weight: 400;"></i>
+                    <i class="fab fa-youtube" style="font-weight: 400;"></i>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="c">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
+
+        <div class="c">
+            <h4>Additional Information</h4>
+            <a href="about.html">Our Mission</a>
+            <a href="about.html">How We Operate</a>
+            <a href="about.html">Privacy Policy</a>
+            <a href="faq.html">FAQs</a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2024, Created by <a href="https://www.facebook.com/fahimlwebdeveloper" style="font-weight:600;">Sohorab Mahmud Fahim</a>.</p>
+        </div>
+
+    </footer>
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            const content = document.getElementById('content');
+            preloader.style.display = 'none';
+            content.style.display = 'block';
+        });
+    </script>
+    <script>
+        const bar = document.getElementById('bar');
+        const close = document.getElementById('close');
+        const nav = document.getElementById('navbar');
+
+        if (bar) {
+            bar.addEventListener('click', () => {
+                nav.classList.add('active');
+                nav.style.zIndex = '1000';
+            });
+        }
+
+        if (close) {
+            close.addEventListener('click', () => {
+                nav.classList.remove('active');
+                nav.style.zIndex = 'initial';
+            });
+        }
+    </script>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        AOS.init({
+            offset: 300
+        })
+        AOS.init({
+            delay: 20
+        })
+    </script>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")
+        })
+
+        document.addEventListener('click', () => {
+            cursor.classList.add("expand");
+
+            setTimeout(() => {
+                cursor.classList.remove("expand");
+            }, 500)
+        })
+    </script>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.audio = new Audio();
+            audio.src = './img/click.mp3';
+        });
+
+        function playAudio() {
+            if (window.audio) {
+                audio.play();
+            } else {
+                console.error('Audio element not found');
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+
+            const chatbotIcon = document.querySelector('.chatbot-icon');
+            const chatbot = document.querySelector('.chatbot');
+            const chatbotClose = document.querySelector('.chatbot-close');
+            const chatbotMessages = document.querySelector('.chatbot-messages');
+            const chatbotInput = document.getElementById('chatbot-input');
+            const suggestionButtons = document.querySelectorAll('.chatbot-suggestions .suggestion');
+
+            chatbotIcon.addEventListener('click', () => {
+                chatbot.style.display = 'flex';
+                chatbotIcon.style.display = 'none';
+            });
+
+            chatbotClose.addEventListener('click', () => {
+                chatbot.style.display = 'none';
+                chatbotIcon.style.display = 'flex';
+            });
+
+            chatbotInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && chatbotInput.value.trim() !== '') {
+                    const userMessage = chatbotInput.value.trim();
+                    appendMessage(userMessage, 'user');
+                    const botResponse = getResponse(userMessage.toLowerCase());
+                    appendMessage(botResponse, 'bot');
+                    chatbotInput.value = '';
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }
+            });
+
+            suggestionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const suggestion = button.getAttribute('data-suggestion');
+                    chatbotInput.value = suggestion;
+                    chatbotInput.dispatchEvent(new Event('keypress', {
+                        key: 'Enter'
+                    }));
+                });
+            });
+
+            function appendMessage(message, sender) {
+                const messageElement = document.createElement('p');
+                messageElement.textContent = message;
+                messageElement.classList.add(sender === 'bot' ? 'bot-message' : 'user-message');
+                chatbotMessages.appendChild(messageElement);
+            }
+
+            function getResponse(message) {
+                const responses = {
+                    'privacy policy': 'Our privacy policy can be viewed on our Privacy Policy page.',
+                    'registration': 'You can register through the registration page on our website.',
+                    'payment': 'We accept all major credit cards and online payment methods.',
+                    'events': 'Check out our events page for upcoming events and schedules.',
+                };
+
+                for (const key in responses) {
+                    if (message.includes(key)) {
+                        return responses[key];
+                    }
+                }
+
+                return "I'm sorry, I didn’t understand that. Please try asking something else.";
+            }
+
+            let isDragging = false;
+            let offsetX, offsetY;
+
+            chatbot.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                offsetX = e.clientX - chatbot.offsetLeft;
+                offsetY = e.clientY - chatbot.offsetTop;
+                chatbot.style.cursor = 'grabbing';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    chatbot.style.left = `${e.clientX - offsetX}px`;
+                    chatbot.style.top = `${e.clientY - offsetY}px`;
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                chatbot.style.cursor = 'grab';
+            });
+        });
+    </script>
+</body>
+
+</html>
