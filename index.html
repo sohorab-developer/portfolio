@@ -300,6 +300,63 @@
                     });
                 }
             </script>
+
+            <script>
+
+const projectNav = document.getElementById("project-nav");
+
+projectNav.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    projectNav.scrollLeft += event.deltaY > 0 ? 100 : -100;
+});
+
+const scrollLeftBtn = document.createElement("button");
+const scrollRightBtn = document.createElement("button");
+
+scrollLeftBtn.innerText = "←";
+scrollRightBtn.innerText = "→";
+
+scrollLeftBtn.style.position = "absolute";
+scrollRightBtn.style.position = "absolute";
+
+scrollLeftBtn.style.left = "10px";
+scrollRightBtn.style.right = "10px";
+scrollLeftBtn.style.top = "50%";
+scrollRightBtn.style.top = "50%";
+
+scrollLeftBtn.style.zIndex = 1000;
+scrollRightBtn.style.zIndex = 1000;
+
+scrollLeftBtn.style.background = "#0e0f1a";
+scrollRightBtn.style.background = "#0e0f1a";
+
+scrollLeftBtn.style.color = "#fff";
+scrollRightBtn.style.color = "#fff";
+
+scrollLeftBtn.style.border = "none";
+scrollRightBtn.style.border = "none";
+
+scrollLeftBtn.style.padding = "10px";
+scrollRightBtn.style.padding = "10px";
+
+scrollLeftBtn.style.cursor = "pointer";
+scrollRightBtn.style.cursor = "pointer";
+
+document.body.appendChild(scrollLeftBtn);
+document.body.appendChild(scrollRightBtn);
+
+scrollLeftBtn.addEventListener("click", () => {
+    projectNav.scrollLeft -= 100;
+});
+
+scrollRightBtn.addEventListener("click", () => {
+    projectNav.scrollLeft += 100;
+});
+
+
+            </script>
+
+            
             
 
 
