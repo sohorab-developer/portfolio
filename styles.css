@@ -62,6 +62,7 @@
 #project-nav::-webkit-scrollbar-thumb:hover {
     background: rgba(192, 192, 192, 0.8);
 }
+
 #img{
    width:400px;
     object-fit: cover;
